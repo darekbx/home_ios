@@ -15,6 +15,7 @@
 		E530F7EB2C96183B0096CA8A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E530F7EA2C9618270096CA8A /* libsqlite3.tbd */; };
 		E530F7F22C973F9D0096CA8A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F12C973F9D0096CA8A /* Task.swift */; };
 		E530F7F42C9764F40096CA8A /* home_backup.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E530F7F32C9764F40096CA8A /* home_backup.sqlite */; };
+		E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F72C987DFC0096CA8A /* TasksManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		E530F7EA2C9618270096CA8A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		E530F7F12C973F9D0096CA8A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E530F7F32C9764F40096CA8A /* home_backup.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = home_backup.sqlite; sourceTree = "<group>"; };
+		E530F7F72C987DFC0096CA8A /* TasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,7 @@
 		E530F7942C9602C10096CA8A /* HomeStorage */ = {
 			isa = PBXGroup;
 			children = (
-				E530F7F02C973F900096CA8A /* Models */,
+				E530F7F62C987DDE0096CA8A /* Tasks */,
 				E530F7952C9602C10096CA8A /* HomeStorage.h */,
 				E530F7962C9602C10096CA8A /* HomeStorage.docc */,
 				E530F7AC2C9602D50096CA8A /* DatabaseManager.swift */,
@@ -112,6 +114,15 @@
 				E530F7F12C973F9D0096CA8A /* Task.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E530F7F62C987DDE0096CA8A /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				E530F7F02C973F900096CA8A /* Models */,
+				E530F7F72C987DFC0096CA8A /* TasksManager.swift */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 			files = (
 				E530F7AD2C9602D50096CA8A /* DatabaseManager.swift in Sources */,
 				E530F7F22C973F9D0096CA8A /* Task.swift in Sources */,
+				E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */,
 				E530F7972C9602C10096CA8A /* HomeStorage.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

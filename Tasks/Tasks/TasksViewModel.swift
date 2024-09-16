@@ -9,33 +9,25 @@ import Foundation
 import HomeStorage
 import SwiftData
 
-class TasksViewController: ObservableObject {
+class TasksViewModel: ObservableObject {
     
     @Published var inProgress: Bool = false
     @Published var tasks: [Task] = []
     
-    private let databaseManager = DatabaseManager()
+    private let tasksManager = TasksManager()
     
     public func fetchAllTasks(modelContext: ModelContext) {
-        tasks = databaseManager.fetchAllTasks(modelContext: modelContext)
+        tasks = tasksManager.fetchAllTasks(modelContext: modelContext)
     }
     
     func importTasks(modelContext: ModelContext) {
         inProgress = true
-        
         DispatchQueue.global(qos: .userInitiated).async {
-            
-            self.databaseManager.openDatabase()
-            self.databaseManager.importTasks(modelContext: modelContext)
-            self.databaseManager.close()
-            
-            Thread.sleep(forTimeInterval: 1.0)
-            
+            self.tasksManager.importTasks(modelContext: modelContext)
             DispatchQueue.main.async {
                 self.inProgress = false
                 self.fetchAllTasks(modelContext: modelContext)
             }
         }
     }
-    
 }
