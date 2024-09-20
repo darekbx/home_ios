@@ -29,9 +29,9 @@ public class TasksManager: DatabaseManager {
             if sqlite3_prepare_v2(db, query, -1, &queryStatement, nil) == SQLITE_OK {
                 do {
                     // Delete all
-                    try modelContext.fetch(FetchDescriptor<Task>()).forEach { task in
-                        modelContext.delete(task)
-                    }
+                    //try modelContext.fetch(FetchDescriptor<Task>()).forEach { task in
+                    //    modelContext.delete(task)
+                    //}
                     
                     while sqlite3_step(queryStatement) == SQLITE_ROW {
                         if let nameColumn = sqlite3_column_text(queryStatement, 0),

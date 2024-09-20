@@ -11,23 +11,23 @@ import HomeStorage
 struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
-    @StateObject private var tasksViewController = TasksViewModel()
+    @StateObject private var tasksViewModel = TasksViewModel()
     
     var body: some View {
         VStack {
-            if tasksViewController.inProgress {
+            if tasksViewModel.inProgress {
                 ProgressView()
             } else {
-                if tasksViewController.tasks.isEmpty {
+                if tasksViewModel.tasks.isEmpty {
                     Text("Nothing here, try to import data!")
                     Button(action: {
-                        tasksViewController.importTasks(modelContext: modelContext)
+                        tasksViewModel.importTasks(modelContext: modelContext)
                     }) {
                         Text("Import")
                     }
                 } else {
                     NavigationStack {
-                        List(tasksViewController.tasks, id: \.self) { task in
+                        List(tasksViewModel.tasks, id: \.self) { task in
                             NavigationLink {
                                 TaskDetailsView(task: task)
                             } label: {
@@ -40,7 +40,7 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            tasksViewController.fetchAllTasks(modelContext: modelContext)
+            tasksViewModel.fetchAllTasks(modelContext: modelContext)
         }
     }
 }

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
+import HomeStorage
 
 @main
 struct WeightApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [WeightEntry.self])
         }
     }
 }

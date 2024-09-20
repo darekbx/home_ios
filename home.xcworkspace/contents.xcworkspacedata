@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Weight/Weight.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Tasks/Tasks.xcodeproj">
    </FileRef>
    <FileRef

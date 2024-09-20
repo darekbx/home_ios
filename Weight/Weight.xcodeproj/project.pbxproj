@@ -11,9 +11,9 @@
 		E5EBA33E2C9A03B30027B9B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA33D2C9A03B30027B9B0 /* ContentView.swift */; };
 		E5EBA3402C9A03B50027B9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5EBA33F2C9A03B50027B9B0 /* Assets.xcassets */; };
 		E5EBA3432C9A03B50027B9B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5EBA3422C9A03B50027B9B0 /* Preview Assets.xcassets */; };
-		E5EBA34D2C9A03B60027B9B0 /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA34C2C9A03B60027B9B0 /* WeightTests.swift */; };
-		E5EBA3572C9A03B60027B9B0 /* WeightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA3562C9A03B60027B9B0 /* WeightUITests.swift */; };
-		E5EBA3592C9A03B60027B9B0 /* WeightUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA3582C9A03B60027B9B0 /* WeightUITestsLaunchTests.swift */; };
+		E5EBA3672C9A03EF0027B9B0 /* HomeStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EBA3662C9A03EF0027B9B0 /* HomeStorage.framework */; };
+		E5EBA3682C9A03EF0027B9B0 /* HomeStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5EBA3662C9A03EF0027B9B0 /* HomeStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5EBA3712C9A15070027B9B0 /* WeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA3702C9A15070027B9B0 /* WeightViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E5EBA3692C9A03EF0027B9B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5EBA3682C9A03EF0027B9B0 /* HomeStorage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E5EBA3382C9A03B30027B9B0 /* Weight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EBA33B2C9A03B30027B9B0 /* WeightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightApp.swift; sourceTree = "<group>"; };
@@ -40,10 +54,9 @@
 		E5EBA33F2C9A03B50027B9B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5EBA3422C9A03B50027B9B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5EBA3482C9A03B60027B9B0 /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EBA34C2C9A03B60027B9B0 /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
 		E5EBA3522C9A03B60027B9B0 /* WeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EBA3562C9A03B60027B9B0 /* WeightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUITests.swift; sourceTree = "<group>"; };
-		E5EBA3582C9A03B60027B9B0 /* WeightUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5EBA3662C9A03EF0027B9B0 /* HomeStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HomeStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EBA3702C9A15070027B9B0 /* WeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EBA3672C9A03EF0027B9B0 /* HomeStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				E5EBA33A2C9A03B30027B9B0 /* Weight */,
-				E5EBA34B2C9A03B60027B9B0 /* WeightTests */,
-				E5EBA3552C9A03B60027B9B0 /* WeightUITests */,
 				E5EBA3392C9A03B30027B9B0 /* Products */,
+				E5EBA3652C9A03EF0027B9B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +111,7 @@
 				E5EBA33D2C9A03B30027B9B0 /* ContentView.swift */,
 				E5EBA33F2C9A03B50027B9B0 /* Assets.xcassets */,
 				E5EBA3412C9A03B50027B9B0 /* Preview Content */,
+				E5EBA3702C9A15070027B9B0 /* WeightViewModel.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -110,21 +124,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E5EBA34B2C9A03B60027B9B0 /* WeightTests */ = {
+		E5EBA3652C9A03EF0027B9B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5EBA34C2C9A03B60027B9B0 /* WeightTests.swift */,
+				E5EBA3662C9A03EF0027B9B0 /* HomeStorage.framework */,
 			);
-			path = WeightTests;
-			sourceTree = "<group>";
-		};
-		E5EBA3552C9A03B60027B9B0 /* WeightUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E5EBA3562C9A03B60027B9B0 /* WeightUITests.swift */,
-				E5EBA3582C9A03B60027B9B0 /* WeightUITestsLaunchTests.swift */,
-			);
-			path = WeightUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +142,7 @@
 				E5EBA3342C9A03B30027B9B0 /* Sources */,
 				E5EBA3352C9A03B30027B9B0 /* Frameworks */,
 				E5EBA3362C9A03B30027B9B0 /* Resources */,
+				E5EBA3692C9A03EF0027B9B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,6 +265,7 @@
 			files = (
 				E5EBA33E2C9A03B30027B9B0 /* ContentView.swift in Sources */,
 				E5EBA33C2C9A03B30027B9B0 /* WeightApp.swift in Sources */,
+				E5EBA3712C9A15070027B9B0 /* WeightViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EBA34D2C9A03B60027B9B0 /* WeightTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +280,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EBA3592C9A03B60027B9B0 /* WeightUITestsLaunchTests.swift in Sources */,
-				E5EBA3572C9A03B60027B9B0 /* WeightUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

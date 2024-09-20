@@ -6,19 +6,50 @@
 //
 
 import SwiftUI
+import HomeStorage
+import SwiftData
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+    
+    @Environment(\.modelContext) private var modelContext
+    
+    var body: some View{
+        ChartView(modelContext: modelContext)
     }
 }
 
-#Preview {
-    ContentView()
+struct ChartView: View {
+    
+    @StateObject private var weightViewModel: WeightViewModel
+    
+    init(modelContext: ModelContext) {
+        _weightViewModel = StateObject(wrappedValue: WeightViewModel(modelContext: modelContext))
+    }
+    
+    var body: some View {
+        VStack {
+            if weightViewModel.inProgress {
+                ProgressView()
+            } else {
+                if weightViewModel.entries.isEmpty {
+                    Button {
+                        weightViewModel.importEntries()
+                    } label: {
+                        Text("Import")
+                    }
+                    
+                } else {
+                    ForEach(weightViewModel.entries, id: \.self) { group in
+                        Text("count: \(group.count)")
+                    }
+                }
+            }
+        }
+        .onAppear {
+            weightViewModel.fetchEntries(entryType: EntryType.darek)
+            weightViewModel.fetchEntries(entryType: EntryType.monika)
+            weightViewModel.fetchEntries(entryType: EntryType.michal)
+        }
+        .padding()
+    }
 }

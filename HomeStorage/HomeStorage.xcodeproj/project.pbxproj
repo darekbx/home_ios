@@ -16,6 +16,8 @@
 		E530F7F22C973F9D0096CA8A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F12C973F9D0096CA8A /* Task.swift */; };
 		E530F7F42C9764F40096CA8A /* home_backup.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E530F7F32C9764F40096CA8A /* home_backup.sqlite */; };
 		E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F72C987DFC0096CA8A /* TasksManager.swift */; };
+		E5EBA36C2C9A04610027B9B0 /* WeightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA36B2C9A04610027B9B0 /* WeightManager.swift */; };
+		E5EBA36F2C9A04AE0027B9B0 /* WeightEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA36E2C9A04AE0027B9B0 /* WeightEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		E530F7F12C973F9D0096CA8A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E530F7F32C9764F40096CA8A /* home_backup.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = home_backup.sqlite; sourceTree = "<group>"; };
 		E530F7F72C987DFC0096CA8A /* TasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksManager.swift; sourceTree = "<group>"; };
+		E5EBA36B2C9A04610027B9B0 /* WeightManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightManager.swift; sourceTree = "<group>"; };
+		E5EBA36E2C9A04AE0027B9B0 /* WeightEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		E530F7942C9602C10096CA8A /* HomeStorage */ = {
 			isa = PBXGroup;
 			children = (
+				E5EBA36A2C9A04520027B9B0 /* Weight */,
 				E530F7F62C987DDE0096CA8A /* Tasks */,
 				E530F7952C9602C10096CA8A /* HomeStorage.h */,
 				E530F7962C9602C10096CA8A /* HomeStorage.docc */,
@@ -123,6 +128,23 @@
 				E530F7F72C987DFC0096CA8A /* TasksManager.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		E5EBA36A2C9A04520027B9B0 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				E5EBA36D2C9A04700027B9B0 /* Model */,
+				E5EBA36B2C9A04610027B9B0 /* WeightManager.swift */,
+			);
+			path = Weight;
+			sourceTree = "<group>";
+		};
+		E5EBA36D2C9A04700027B9B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5EBA36E2C9A04AE0027B9B0 /* WeightEntry.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +261,8 @@
 				E530F7F22C973F9D0096CA8A /* Task.swift in Sources */,
 				E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */,
 				E530F7972C9602C10096CA8A /* HomeStorage.docc in Sources */,
+				E5EBA36F2C9A04AE0027B9B0 /* WeightEntry.swift in Sources */,
+				E5EBA36C2C9A04610027B9B0 /* WeightManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
