@@ -8,7 +8,7 @@
 import SwiftData
 
 @Model
-public class Task {
+public class TaskModel {
     public var id: UUID?
     public var name: String
     public var content: String

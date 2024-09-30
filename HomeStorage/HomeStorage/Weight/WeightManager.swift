@@ -15,9 +15,10 @@ public enum EntryType: Int8 {
     case michal = 3
 }
 
-public class WeightManager: DatabaseManager {
+@ModelActor
+public actor WeightManager {
     
-    public func fetchAllEntries(modelContext: ModelContext) -> [WeightEntry] {
+    public func fetchAllEntries() async -> [WeightEntry] {
         let descriptor = FetchDescriptor<WeightEntry>()
         do {
             return try modelContext.fetch(descriptor)
@@ -27,12 +28,13 @@ public class WeightManager: DatabaseManager {
         }
     }
     
-    public func fetchAllEntries(modelContext: ModelContext, entryType: EntryType) -> [WeightEntry] {
+    public func fetchAllEntries(entryType: EntryType) async -> [WeightEntry] {
         let rawType = entryType.rawValue
         let predicate = #Predicate<WeightEntry> {
             $0.type == rawType
         }
-        let descriptor = FetchDescriptor<WeightEntry>(predicate: predicate)
+        let sort = [SortDescriptor(\WeightEntry.date, order: .reverse)]
+        let descriptor = FetchDescriptor<WeightEntry>(predicate: predicate, sortBy: sort)
         do {
             return try modelContext.fetch(descriptor)
         } catch {
@@ -41,10 +43,16 @@ public class WeightManager: DatabaseManager {
         }
     }
     
-    public func addEntry(modelContext: ModelContext, entry: WeightEntry) {
+    public func addEntry(entry: WeightEntry) async {
         modelContext.insert(entry)
     }
     
+    public func deleteEntry(entry: WeightEntry) async {
+        modelContext.delete(entry)
+    }
+}
+
+public class EntriesImport: DatabaseManager {
     public func importEntries(modelContext: ModelContext) {
         openDatabase { db in
             let query = "SELECT date, weight, type FROM weight_entry"

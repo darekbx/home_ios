@@ -10,7 +10,7 @@ import SwiftUI
 import HomeStorage
 
 struct TaskDetailsView: View {
-    let task: Task
+    let task: TaskModel
     
     var body: some View {
         ScrollView {

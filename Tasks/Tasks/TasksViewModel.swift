@@ -12,7 +12,7 @@ import SwiftData
 class TasksViewModel: ObservableObject {
     
     @Published var inProgress: Bool = false
-    @Published var tasks: [Task] = []
+    @Published var tasks: [TaskModel] = []
     
     private let tasksManager = TasksManager()
     

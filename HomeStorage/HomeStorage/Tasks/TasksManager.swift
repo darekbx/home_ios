@@ -11,8 +11,8 @@ import SQLite3
 
 public class TasksManager: DatabaseManager {
     
-    public func fetchAllTasks(modelContext: ModelContext) -> [Task] {
-        let descriptor = FetchDescriptor<Task>()
+    public func fetchAllTasks(modelContext: ModelContext) -> [TaskModel] {
+        let descriptor = FetchDescriptor<TaskModel>()
         do {
             return try modelContext.fetch(descriptor)
         } catch {
@@ -40,7 +40,7 @@ public class TasksManager: DatabaseManager {
                             let name = String(cString: nameColumn)
                             let content = String(cString: contentColumn)
                             let date = String(cString: dateColumn)
-                            modelContext.insert(Task(name: name, content: content, date: date))
+                            modelContext.insert(TaskModel(name: name, content: content, date: date))
                         }
                     }
                 } catch {
