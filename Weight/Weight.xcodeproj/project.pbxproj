@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E591FD782C9F5BB3008D5804 /* EntriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591FD772C9F5BB3008D5804 /* EntriesList.swift */; };
+		E5AFA5B02CAC813500ADBD82 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AFA5AF2CAC813500ADBD82 /* NewEntryView.swift */; };
 		E5EBA33C2C9A03B30027B9B0 /* WeightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA33B2C9A03B30027B9B0 /* WeightApp.swift */; };
 		E5EBA33E2C9A03B30027B9B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA33D2C9A03B30027B9B0 /* ContentView.swift */; };
 		E5EBA3402C9A03B50027B9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5EBA33F2C9A03B50027B9B0 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		E591FD772C9F5BB3008D5804 /* EntriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesList.swift; sourceTree = "<group>"; };
+		E5AFA5AF2CAC813500ADBD82 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
 		E5EBA3382C9A03B30027B9B0 /* Weight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EBA33B2C9A03B30027B9B0 /* WeightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightApp.swift; sourceTree = "<group>"; };
 		E5EBA33D2C9A03B30027B9B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				E5EBA3412C9A03B50027B9B0 /* Preview Content */,
 				E5EBA3702C9A15070027B9B0 /* WeightViewModel.swift */,
 				E591FD772C9F5BB3008D5804 /* EntriesList.swift */,
+				E5AFA5AF2CAC813500ADBD82 /* NewEntryView.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				E5EBA33C2C9A03B30027B9B0 /* WeightApp.swift in Sources */,
 				E591FD782C9F5BB3008D5804 /* EntriesList.swift in Sources */,
 				E5EBA3712C9A15070027B9B0 /* WeightViewModel.swift in Sources */,
+				E5AFA5B02CAC813500ADBD82 /* NewEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

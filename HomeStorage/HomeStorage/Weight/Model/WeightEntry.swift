@@ -20,4 +20,9 @@ public class WeightEntry {
         self.weight = weight
         self.type = type
     }
+    
+    public func formattedDate(_ formatter: DateFormatter) -> String {
+        let dateObject = Date(timeIntervalSince1970: TimeInterval(self.date) / 1000)
+        return formatter.string(from: dateObject)
+    }
 }

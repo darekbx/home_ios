@@ -23,6 +23,7 @@ struct ChartView: View {
     
     @StateObject private var weightViewModel: WeightViewModel
     @State private var inProgress: Bool = false
+    @State private var addSheetVisible: Bool = false
     
     init(modelContext: ModelContext) {
         _weightViewModel = StateObject(wrappedValue: WeightViewModel(modelContext: modelContext))
@@ -31,12 +32,15 @@ struct ChartView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if inProgress || weightViewModel.inProgress {
+                if inProgress {
                     ProgressView()
                 } else {
                     if weightViewModel.entries.isEmpty {
                         Button {
-                            weightViewModel.importEntries()
+                            inProgress = true
+                            weightViewModel.importEntries {
+                                inProgress = false
+                            }
                         } label: {
                             Text("Import")
                         }
@@ -48,29 +52,32 @@ struct ChartView: View {
                     }
                 }
             }
-            .navigationTitle("Weight")
+            .navigationTitle("Weight chart")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: EntriesList()) {
-                        Text("List")
+                        Image(systemName: "list.bullet")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { addSheetVisible.toggle() })  {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $addSheetVisible) {
+                NewEntryView(weightViewModel: weightViewModel)
+                    .presentationDetents([.height(240)])
             }
             .task {
                 self.inProgress = true
                 defer { self.inProgress = false }
-                
-                await weightViewModel.fetchEntries(entryType: EntryType.darek)
-                await weightViewModel.fetchEntries(entryType: EntryType.monika)
-                await weightViewModel.fetchEntries(entryType: EntryType.michal)
-                
-                try? await _Concurrency.Task.sleep(nanoseconds: 500_000_000)
+                await weightViewModel.fetchAll()
             }
             .onDisappear {
                 weightViewModel.clear()
             }
             .padding()
         }
-        
     }
 }

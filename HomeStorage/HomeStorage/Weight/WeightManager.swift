@@ -43,7 +43,9 @@ public actor WeightManager {
         }
     }
     
-    public func addEntry(entry: WeightEntry) async {
+    public func addEntry(weight: Double, selectedOption: Int8) async {
+        let timestamp = Int64(Date().timeIntervalSince1970 * 1000)
+        let entry = WeightEntry(id: UUID(), date: timestamp, weight: weight, type: selectedOption)
         modelContext.insert(entry)
     }
     
