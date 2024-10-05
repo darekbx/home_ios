@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import SQLite3
 
-public enum EntryType: Int8 {
+public enum EntryType: Int8, CaseIterable {
     case monika = 1
     case darek = 2
     case michal = 3
