@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Fuel/Fuel.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Weight/Weight.xcodeproj">
    </FileRef>
    <FileRef

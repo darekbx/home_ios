@@ -16,6 +16,8 @@
 		E530F7F22C973F9D0096CA8A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F12C973F9D0096CA8A /* Task.swift */; };
 		E530F7F42C9764F40096CA8A /* home_backup.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E530F7F32C9764F40096CA8A /* home_backup.sqlite */; };
 		E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E530F7F72C987DFC0096CA8A /* TasksManager.swift */; };
+		E53F2EB02CB31EB3001B0488 /* FuelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F2EAF2CB31EB3001B0488 /* FuelManager.swift */; };
+		E53F2EB32CB31EC2001B0488 /* FuelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F2EB22CB31EC2001B0488 /* FuelEntry.swift */; };
 		E5EBA36C2C9A04610027B9B0 /* WeightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA36B2C9A04610027B9B0 /* WeightManager.swift */; };
 		E5EBA36F2C9A04AE0027B9B0 /* WeightEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBA36E2C9A04AE0027B9B0 /* WeightEntry.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		E530F7F12C973F9D0096CA8A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E530F7F32C9764F40096CA8A /* home_backup.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = home_backup.sqlite; sourceTree = "<group>"; };
 		E530F7F72C987DFC0096CA8A /* TasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksManager.swift; sourceTree = "<group>"; };
+		E53F2EAF2CB31EB3001B0488 /* FuelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelManager.swift; sourceTree = "<group>"; };
+		E53F2EB22CB31EC2001B0488 /* FuelEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEntry.swift; sourceTree = "<group>"; };
 		E5EBA36B2C9A04610027B9B0 /* WeightManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightManager.swift; sourceTree = "<group>"; };
 		E5EBA36E2C9A04AE0027B9B0 /* WeightEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,7 @@
 		E530F7942C9602C10096CA8A /* HomeStorage */ = {
 			isa = PBXGroup;
 			children = (
+				E53F2EAE2CB31EA8001B0488 /* Fuel */,
 				E5EBA36A2C9A04520027B9B0 /* Weight */,
 				E530F7F62C987DDE0096CA8A /* Tasks */,
 				E530F7952C9602C10096CA8A /* HomeStorage.h */,
@@ -128,6 +133,23 @@
 				E530F7F72C987DFC0096CA8A /* TasksManager.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		E53F2EAE2CB31EA8001B0488 /* Fuel */ = {
+			isa = PBXGroup;
+			children = (
+				E53F2EB12CB31EB7001B0488 /* Model */,
+				E53F2EAF2CB31EB3001B0488 /* FuelManager.swift */,
+			);
+			path = Fuel;
+			sourceTree = "<group>";
+		};
+		E53F2EB12CB31EB7001B0488 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E53F2EB22CB31EC2001B0488 /* FuelEntry.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5EBA36A2C9A04520027B9B0 /* Weight */ = {
@@ -257,10 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53F2EB32CB31EC2001B0488 /* FuelEntry.swift in Sources */,
 				E530F7AD2C9602D50096CA8A /* DatabaseManager.swift in Sources */,
 				E530F7F22C973F9D0096CA8A /* Task.swift in Sources */,
 				E530F7F82C987DFC0096CA8A /* TasksManager.swift in Sources */,
 				E530F7972C9602C10096CA8A /* HomeStorage.docc in Sources */,
+				E53F2EB02CB31EB3001B0488 /* FuelManager.swift in Sources */,
 				E5EBA36F2C9A04AE0027B9B0 /* WeightEntry.swift in Sources */,
 				E5EBA36C2C9A04610027B9B0 /* WeightManager.swift in Sources */,
 			);
