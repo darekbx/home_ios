@@ -26,6 +26,11 @@ public actor FuelManager {
         modelContext.delete(entry)
     }
     
+    public func add(price: Double, liters: Double, type: Int) async {
+        let timestamp = Int64(Date().timeIntervalSince1970 * 1000)
+        let entry = FuelEntry(date: "\(timestamp)", liters: liters, cost: price, type: Int8(type))
+        modelContext.insert(entry)
+    }
 }
 
 public class FuelEntriesImport: DatabaseManager {

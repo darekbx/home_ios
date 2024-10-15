@@ -32,6 +32,12 @@ class FuelViewModel: ObservableObject {
     }
     
     @MainActor
+    func add(price: Double, liters: Double, type: Int) async {
+        await fuelManager.add(price: price, liters: liters, type: type)
+        await fetchAll()
+    }
+    
+    @MainActor
     func fetchAll() async {
         entries = await fuelManager.fetchEntries()
     }

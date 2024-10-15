@@ -38,43 +38,15 @@ struct FuelListView: View {
                         } label: {
                             Text("Import")
                         }
-                        
                     } else {
-                        let (minPrice, maxPrice) = fuelViewModel.minMaxConstPerLister()
                         VStack {
-                            Chart {
-                                ForEach(Array(fuelViewModel.entries.enumerated()), id: \.element) { index, entry in
-                                    LineMark(
-                                        x: .value("date", index),
-                                        y: .value("cost", (entry.cost / entry.liters))
-                                    )
-                                    .lineStyle(StrokeStyle(lineWidth: 1))
-                                    .foregroundStyle(Color.green) // entry.type == 1 ? Color.green : Color.black)
-                                }
-                            }
-                            .frame(height: 100)
-                            .chartYScale(domain: minPrice...maxPrice)
-                            .chartXScale(domain: 0...fuelViewModel.entries.count)
-                            
+                            EntriesChart()
                             Divider()
-                            
-                            ScrollView {
-                                LazyVStack(alignment: .leading, spacing: 4) {
-                                    ForEach(fuelViewModel.entries.reversed(), id: \.self) { entry in
-                                        EntryView(entry)
-                                            .onLongPressGesture {
-                                                entryToDelete = entry
-                                                showDeleteDialog = true
-                                            }
-                                    }
-                                }
-                            }
+                            EntriesList()
                         }
-                        
                     }
                     
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -85,7 +57,6 @@ struct FuelListView: View {
             }
             .sheet(isPresented: $addSheetVisible) {
                 NewEntryView(viewModel: fuelViewModel)
-                    .presentationDetents([.height(350)])
             }
             .alert(isPresented: $showDeleteDialog) {
                 deleteAlert()
@@ -98,10 +69,53 @@ struct FuelListView: View {
         }
     }
     
+    fileprivate func EntriesChart() -> some View {
+        let (minPrice, maxPrice) = fuelViewModel.minMaxConstPerLister()
+        return Chart {
+            ForEach(Array(fuelViewModel.entries.enumerated()), id: \.element) { index, entry in
+                LineMark(
+                    x: .value("date", index),
+                    y: .value("cost", (entry.cost / entry.liters))
+                )
+                .lineStyle(StrokeStyle(lineWidth: 1))
+                .foregroundStyle(Color.green)
+            }
+        }
+        .frame(height: 100)
+        .chartXAxis(.hidden)
+        .chartYAxis {
+            AxisMarks(values: .stride(by: 1)) { value in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel() {
+                    if let doubleValue = value.as(Double.self) {
+                        Text(String(format: "%.2f", doubleValue))
+                    }
+                }
+            }
+        }
+        .chartXScale(domain: 0...fuelViewModel.entries.count)
+        .chartYScale(domain: minPrice...maxPrice)
+    }
+    
+    fileprivate func EntriesList() -> ScrollView<LazyVStack<ForEach<ReversedCollection<[FuelEntry]>, ReversedCollection<[FuelEntry]>.Element, some View>>> {
+        return ScrollView {
+            LazyVStack(alignment: .leading, spacing: 4) {
+                ForEach(fuelViewModel.entries.reversed(), id: \.self) { entry in
+                    EntryView(entry)
+                        .onLongPressGesture {
+                            entryToDelete = entry
+                            showDeleteDialog = true
+                        }
+                }
+            }
+        }
+    }
+    
     private func deleteAlert() -> Alert {
         return Alert(
             title: Text("Delete?"),
-            message: Text("Delete \(String(format: "%.2fzł", entryToDelete?.cost ?? 0)) / \(String(format: "%.2fzł", entryToDelete?.liters ?? 0))L ?"),
+            message: Text("Delete \(String(format: "%.2fzł", entryToDelete?.cost ?? 0)) / \(String(format: "%.2fL", entryToDelete?.liters ?? 0)) ?"),
             primaryButton: .destructive(Text("Yes")) {
                 guard let entry = entryToDelete else { return }
                 deleteEntry(entry: entry)
@@ -129,7 +143,7 @@ struct FuelListView: View {
                 .padding(.top, 4)
             
             VStack(alignment: .leading) {
-                Text("\(String(format: "%.2fzł", entry.cost)) / \(String(format: "%.2fzł", entry.liters))L")
+                Text("\(String(format: "%.2fzł", entry.cost)) / \(String(format: "%.2f", entry.liters))L")
                     .bold()
                     .font(.system(size: 12))
                 Text(String(format: "%.2fzł/L", entry.cost / entry.liters))
