@@ -19,7 +19,13 @@ struct NewEntryView: View {
     @State private var liters: Double = 0
     @State private var type: Int = 1
     
-    private let formatter = NumberFormatter()
+    private let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.zeroSymbol = ""
+        formatter.nilSymbol = ""
+        return formatter
+    }()
     
     init(viewModel: FuelViewModel) {
         self.viewModel = viewModel
@@ -29,21 +35,13 @@ struct NewEntryView: View {
         NavigationStack {
             Form {
                 VStack {
-                    LabeledContent {
-                        TextField("Price", value: $price, formatter: formatter)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    } label: {
-                        Text("Price")
-                    }
+                    TextField("Price", value: $price, formatter: formatter)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    LabeledContent {
-                        TextField("Liters", value: $liters, formatter: formatter)
-                            .keyboardType(.decimalPad)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    } label: {
-                        Text("Liters")
-                    }
+                    TextField("Liters", value: $liters, formatter: formatter)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Picker("", selection: $type) {
                         Text("Diesel").tag(0)
@@ -60,7 +58,7 @@ struct NewEntryView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        addEntry(price: price, liters: liters, type: type) {
+                        addEntry() {
                             dismiss()
                         }
                     }
@@ -69,11 +67,10 @@ struct NewEntryView: View {
         }
     }
     
-    private func addEntry(price: Double, liters: Double, type: Int, onDone: @escaping () -> Void) {
+    private func addEntry(onDone: @escaping () -> Void) {
         Task {
             await viewModel.add(price: price, liters: liters, type: type)
             onDone()
         }
     }
-    
 }
